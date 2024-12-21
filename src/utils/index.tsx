@@ -1,5 +1,3 @@
-type ColorCodes = string;
-
 function isValidHEX(code: string) {
   const regex = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
   return regex.test(code);

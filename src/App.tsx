@@ -1,13 +1,18 @@
 import { Textarea } from "@mantine/core";
 import { sanatizeColorCodes } from "./utils";
+import { Palette } from "./components/Palette";
+import classes from "./app.module.css";
+import { useState } from "react";
 
 function App() {
+  const [state, setState] = useState<string>("");
+
   function onChange(str: string) {
-    console.log(sanatizeColorCodes(str));
+    setState(str);
   }
 
   return (
-    <>
+    <div className={classes["container"]}>
       <Textarea
         size="md"
         label="Paste color codes"
@@ -18,7 +23,8 @@ function App() {
         autosize
         onChange={(e) => onChange(e.target.value)}
       />
-    </>
+      <Palette colorCodes={sanatizeColorCodes(state)} />
+    </div>
   );
 }
 
