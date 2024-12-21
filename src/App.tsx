@@ -2,7 +2,7 @@ import { Textarea } from "@mantine/core";
 import { sanatizeColorCodes } from "./utils";
 
 function App() {
-  function onChange(str) {
+  function onChange(str: string) {
     console.log(sanatizeColorCodes(str));
   }
 
